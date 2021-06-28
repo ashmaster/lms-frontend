@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap');
+
+.InfoBarRectangle {
+    width: 90vw;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    margin-top: 28px;
+    background: #FFFFFF;
+    border: 2px solid #D7CCCC;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    align-self: center;
+    justify-self: center;
+}
+
+.InfoBarColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.InfoBarNumbers{
+    font-family: Rhodium Libre;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.InfoBarTitle{
+    font-family: Rhodium Libre;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+}

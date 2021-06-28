@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.AdminActionsRectangle{
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.AdminActionsTitle{
+    display: flex;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    align-self: flex-start;
+    text-align: left;
+    margin-top: 18px;
+    
+}
+
+.AdminActionsMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.AdminActionsItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    width: 50px;
+}
+
+.AdminActionsItem:hover{
+    cursor: pointer;
+}
+
+.AdminActionsItemImage{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #E7E9FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AdminActionsItemTitle{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #000000;
+
+}

@@ -1,0 +1,60 @@
+.SearchBoxRectangle{
+    width: 100vw;
+    margin-top: 28px;
+    padding-bottom: 18px;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    flex-direction: column;
+    background: #E7E9FF;
+}
+
+.SearchBoxTitle{
+    margin-top: 18px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.SearchBoxContainer{
+    display: flex;
+    margin-top: 14px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SearchBoxBar{
+    width: 60%;
+    height: 36px;
+    background: #FFFFFF;
+    border-style: solid;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding-left: 12px;
+}
+
+.SearchBoxButton{
+    width: 37%;
+    height: 36px;
+    background: #00E600;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+
+.SearchBoxButton:hover{
+    cursor: pointer;
+}
