@@ -9,7 +9,7 @@ export default function(props){
     return(
         <div className= "Home">
             <InfoBar/>
-            <SearchBox/>
+            <SearchBox type = "both"/>
             <Transactions/>
             <AdminActions/>
         </div>

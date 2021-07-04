@@ -7,26 +7,37 @@ import {
 } from "react-router-dom";
 import Login from "./pages/Login/login";
 import Home from "./pages/Home/home"
+import IssueBook from "./pages/IssueBook/issueBook"
+import ReturnBook from "./pages/ReturnBook/returnBook";
 import TopBar from "./components/TopBar/topBar"
 import { Navbar, Nav, Form, FormControl, Button, NavDropdown, Container, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SnackbarProvider from 'react-simple-snackbar'
 
 
 
 export default function App() {
   return (
     <Router>
-      <div>
-        <TopBar/>
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-        </Switch>
-      </div>
+      <SnackbarProvider>
+        <div>
+          <TopBar />
+          <Switch>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path={["/issue-book/:id", "/issue-book"]}>
+              <IssueBook />
+            </Route>
+            <Route path={["/return-book/:id", "/return-book"]}>
+              <ReturnBook />
+            </Route>
+          </Switch>
+        </div>
+      </SnackbarProvider>
     </Router>
   );
 }

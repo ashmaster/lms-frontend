@@ -3,15 +3,23 @@ import issueBook from '../../../assets/issueBook.png'
 import returnBook from '../../../assets/return.png'
 import allTransactions from '../../../assets/alltransaction.png'
 import unreturned from '../../../assets/unreturned.png'
+import {
+    useHistory,
+    useLocation
+  } from "react-router-dom";
 
 export default function(props){
+
+    const handlePageChange = (e) => {
+        window.location.href = '/' + e ;
+    }
     return(
         <div className = "TransactionsRectangle">
             <div className = "TransactionsTitle">
                 Transactions
             </div>
             <div className = "TransactionsMenu">
-                <div className = "TransactionsItem">
+                <div className = "TransactionsItem" onClick = {() => handlePageChange("issue-book")}>
                     <div className = "TransactionsItemImage">
                         <img src = {issueBook} style = {{width : '30px', height : 'auto'}}/>
                     </div>
@@ -19,7 +27,7 @@ export default function(props){
                         {"Issue\nbook"}
                     </div>
                 </div>
-                <div className = "TransactionsItem">
+                <div className = "TransactionsItem" onClick = {() => handlePageChange("return-book")}>
                     <div className = "TransactionsItemImage">
                         <img src = {returnBook} style = {{width : '30px', height : 'auto'}}/>
                     </div>

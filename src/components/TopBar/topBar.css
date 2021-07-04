@@ -11,6 +11,9 @@
 }
 
 .topBarTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-family: Rhodium Libre;
     font-style: normal;
     font-weight: bold;
