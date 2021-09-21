@@ -11,14 +11,16 @@ export default function (props) {
         "issue-book": "Issue Book",
         "home": "FGMHS",
         "login": "FGMHS",
-        "return-book": "Return Book"
+        "return-book": "Return Book",
+        "pending-return": "Unreturned Books",
+        "all-transactions": "All Transactions"
     }
     const loc = window.location.href.split('/')[3]
     return (
         <div className="topBarRow">
             <div className="topBarTitle">
                 {(loc === "login" || loc === "home") ? null :
-                    <img src={back} className="titleBarIcon" alt="logo" style={{ marginRight: '12px' }} onClick = {() => {window.location.href = "/home"}}/>}
+                    <img src={back} className="titleBarIcon" alt="logo" style={{ marginRight: '12px' }} onClick = {() => {window.history.back()}}/>}
                 {headerTitle[loc]}
             </div>
             {(loc === "login" || loc === "home") ? <div className="titleBarIcon">

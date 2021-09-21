@@ -19,20 +19,25 @@ export default function IssueBook(props) {
         setStudent(e)
     }
     const giveBackBDetails = e => {
-        const find = bookList.find(item => {
-            if(item.bookId == e.bookId)
-                return true
-        })
-
-        console.log(find)
-        if (find){
-            setShowSearchBook(false);
-            openSnack('Book already added');
+        if(!e)
+            removeBook(e.id)
+        else{
+            const find = bookList.find(item => {
+                if(item.bookId == e.bookId)
+                    return true
+            })
+    
+            console.log(find)
+            if (find){
+                setShowSearchBook(false);
+                openSnack('Book already added');
+            }
+            else {
+                setBookList(prevState => [...prevState, e])
+                setShowSearchBook(false);
+            }
         }
-        else {
-            setBookList(prevState => [...prevState, e])
-            setShowSearchBook(false);
-        }
+        
     };
 
     const closePopup = () => {
@@ -69,7 +74,7 @@ export default function IssueBook(props) {
         
     }
     return (
-        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', position: 'relative' }}>
             {bookList.length > 0 || showSearchBook ? null : <SearchBox type="student" id={id || null} giveBackDetails={giveBackSDetails} />}
             {bookList.length > 0 || showSearchBook ? <div style = {{marginLeft:'12px', marginRight:'12px'}}><SDetail studentId={student.student.admissionNo} closePopup={() => closePopup()} type="student" data={student} /></div> : null}
             {bookList.length > 0 && <div style = {{display : 'flex', flexDirection : 'column', width : '95%', borderTop : 'solid 0.5px', alignItems:'center'}}>

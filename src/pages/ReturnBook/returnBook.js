@@ -5,28 +5,28 @@ import loading_gif from '../../assets/loading.gif'
 import { useSnackbar } from "react-simple-snackbar";
 import axios from 'axios'
 const MONTHS = [
-    "JAN",
-    "FEB",
-    "MAR",
-    "APR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AUG",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC"
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
 ]
 
 const DAY = [
-    "MON",
-    "TUE",
-    "WED",
-    "THU",
-    "FRI",
-    "SAT",
-    "SUN"
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun"
 ]
 export default function ReturnBook(props) {
     const { id } = useParams();
@@ -34,6 +34,7 @@ export default function ReturnBook(props) {
     const [lastTransaction, setLastTransation] = useState(null);
     const [bookDetails, setBookDetails] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [remarks, setRemarks] = useState('')
     
     const giveBackDetails = (e) => {
         if (e) {
@@ -58,7 +59,7 @@ export default function ReturnBook(props) {
         const dow = date.getDay();
         const month = date.getMonth();
         const year = date.getFullYear();
-        var diffDays = parseInt((date - today) / (1000 * 60 * 60 * 24), 10);
+        var diffDays = parseInt((today - date) / (1000 * 60 * 60 * 24), 10);
         const retValue = day + "  " + MONTHS[month] + "  " + year + " | " + DAY[dow] + " | "  + diffDays + " days ago";
         return retValue
     }
@@ -67,6 +68,7 @@ export default function ReturnBook(props) {
         let params = {};
         params.bookList = new Array(bookDetails);
         params.student = lastTransaction;
+        params.remarks = remarks
         setLoading(true)
         let res = await axios.post(`http://localhost:3001/return_book`, params);
         let response = res.data;
@@ -103,9 +105,13 @@ export default function ReturnBook(props) {
             )}
             {
                 lastTransaction && (
-                    <div onClick={() => loading ? null : returnBooks()} style={{ position: 'absolute', bottom: 0, width: '100%', paddingTop: '10px', paddingBottom: '10px', textAlign: 'center', verticalAlign: 'middle', background: 'green', fontSize: '22px', fontWeight: 'bold', color: '#fff' }}>
-                        {loading ? <img src = {loading_gif} width = {"26px"} height = {"auto"}></img> :"Return Book"}
+                    <div style = {{position: 'absolute', bottom: 0, width: '100%'}}>
+                        <textarea style = {{width: '100%', fontFamily: 'monospace'}} onChange = {(p) => setRemarks(p.currentTarget.value)} placeholder = "Remark before returning"></textarea>
+                        <div onClick={() => loading ? null : returnBooks()} style={{width: '100%', paddingTop: '10px', paddingBottom: '10px', textAlign: 'center', verticalAlign: 'middle', background: 'green', fontSize: '22px', fontWeight: 'bold', color: '#fff' }}>
+                            {loading ? <img src = {loading_gif} width = {"26px"} height = {"auto"}></img> :"Return Book"}
+                        </div>
                     </div>
+                    
                 )
             }
         </div>

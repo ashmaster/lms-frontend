@@ -26,8 +26,6 @@ export default function (props) {
         setSearchBook(false)
         if(props.type === "student")
             props.giveBackDetails(null)
-        if(props.type === "book")
-            props.giveBackDetails(null)
     };
 
     const giveBackDetails = (e) => {

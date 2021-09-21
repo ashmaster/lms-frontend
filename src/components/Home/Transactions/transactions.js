@@ -35,7 +35,7 @@ export default function(props){
                         {"Return\nbook"}
                     </div>
                 </div>
-                <div className = "TransactionsItem">
+                <div className = "TransactionsItem" onClick = {() => handlePageChange("pending-return")}>
                     <div className = "TransactionsItemImage">
                         <img src = {unreturned} style = {{width : '30px', height : 'auto'}}/>
                     </div>
@@ -43,7 +43,7 @@ export default function(props){
                         {"Unreturned\nbooks"}
                     </div>
                 </div>
-                <div className = "TransactionsItem">
+                <div className = "TransactionsItem" onClick = {() => handlePageChange("all-transactions")}>
                     <div className = "TransactionsItemImage">
                         <img src = {allTransactions}  style = {{width : '30px', height : 'auto'}}/>
                     </div>

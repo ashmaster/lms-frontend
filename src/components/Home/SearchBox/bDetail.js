@@ -51,9 +51,6 @@ export default function ({ bookId, closePopup, giveBackDetails, type, data }) {
             </div>
             {!loading ?
                 <div className="sDetailRectangle">
-                    <div className="sDetailImage">
-                        <img src={titleBarIcon} style={{ width: "42px", height: 'auto' }} />
-                    </div>
                     <div className="sDetailDetails">
                         <div className="sDetailName">
                             {bookDetails.b_name}
@@ -82,7 +79,7 @@ export default function ({ bookId, closePopup, giveBackDetails, type, data }) {
                     </div> : (bookDetails.bookAvailable && loc !== "return-book") ? (
                         <div className="sDatailBGroup" onClick = {() => addBook()}>
                             <div className="sDetailButton">
-                                Add book
+                                Add
                             </div>
                         </div>
                     ) : (
