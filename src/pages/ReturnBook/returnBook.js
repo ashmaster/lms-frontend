@@ -3,6 +3,7 @@ import { useParams } from "react-router"
 import { useEffect, useState } from "react";
 import loading_gif from '../../assets/loading.gif'
 import { useSnackbar } from "react-simple-snackbar";
+import backend from "../../const";
 import axios from 'axios'
 const MONTHS = [
     "Jan",
@@ -70,7 +71,7 @@ export default function ReturnBook(props) {
         params.student = lastTransaction;
         params.remarks = remarks
         setLoading(true)
-        let res = await axios.post(`http://localhost:3001/return_book`, params);
+        let res = await axios.post(`${backend}/return_book`, params);
         let response = res.data;
         if(response.status){
             setLoading(false)

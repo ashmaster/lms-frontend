@@ -3,13 +3,14 @@ import axios from 'axios';
 import { useSnackbar } from "react-simple-snackbar";
 import { useState, useEffect } from "react";
 import loading_icon from '../../../assets/loading.gif'
+import backend from "../../../const";
 export default function(props){
     const [loading, setLoading] = useState(true);
     const [homePageData, setHomePageData] = useState({})
     const [openSnack, closeSnack] = useSnackbar({position : 'top-center'});
 
     useEffect(async() => {
-        const res = await axios.get(`http://localhost:3001/homepage_data`);
+        const res = await axios.get(`${backend}/homepage_data`);
         const result = res.data;
         if(result.status){
             setHomePageData(result.data);
@@ -18,7 +19,7 @@ export default function(props){
         else{
             openSnack(`Could not get details`);
         }
-    })
+    },[])
     if(!loading)
     return(
         <div className = "InfoBarRectangle">

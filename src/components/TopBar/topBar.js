@@ -11,20 +11,29 @@ export default function (props) {
         "issue-book": "Issue Book",
         "home": "FGMHS",
         "login": "FGMHS",
+        "": "FGMHS",
         "return-book": "Return Book",
         "pending-return": "Unreturned Books",
-        "all-transactions": "All Transactions"
+        "all-transactions": "All Transactions",
+        "add-book": "Add Book",
+        "add-student": "Add Student"
+    }
+    const handleLogout = () => {
+        window.localStorage.removeItem('Admin');
+        setTimeout(() => {
+            window.location.href = "login";
+        }, 500)
     }
     const loc = window.location.href.split('/')[3]
     return (
         <div className="topBarRow">
             <div className="topBarTitle">
-                {(loc === "login" || loc === "home") ? null :
+                {(loc === "login" || loc === "home" || loc === "") ? null :
                     <img src={back} className="titleBarIcon" alt="logo" style={{ marginRight: '12px' }} onClick = {() => {window.history.back()}}/>}
                 {headerTitle[loc]}
             </div>
-            {(loc === "login" || loc === "home") ? <div className="titleBarIcon">
-                <img src={titleBarIcon} className="titleBarIcon" alt="logo" />
+            {(loc === "home" || loc === "") ? <div className="titleBarIcon" onClick={() => handleLogout()}>
+                <p>Logout</p>
             </div> : <div style={{ width: "36px" }} />}
         </div>
     )

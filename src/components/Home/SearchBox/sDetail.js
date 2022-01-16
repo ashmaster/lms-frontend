@@ -5,6 +5,7 @@ import close_icon from '../../../assets/close_icon.png'
 import loading_icon from '../../../assets/loading.gif'
 import axios from 'axios';
 import { useSnackbar } from 'react-simple-snackbar'
+import backend from '../../../const'
 
 export default function ({studentId, closePopup, giveBackDetails, type, data}) {
     const [studentDetails, setStudentDetails] = useState({});
@@ -18,7 +19,7 @@ export default function ({studentId, closePopup, giveBackDetails, type, data}) {
         }
             
         else{
-            const res = await axios.get(`http://localhost:3001/student/${studentId}`);
+            const res = await axios.get(`${backend}/student/${studentId}`);
             const result = res.data;
             if(result.status){
                 setStudentDetails(result.data);
@@ -56,8 +57,7 @@ export default function ({studentId, closePopup, giveBackDetails, type, data}) {
                             <div style={{ marginRight: '10px', fontWeight: 'bold' }}>
                                 {studentId},
                             </div>
-                            <div>
-                                {studentDetails.student.class}-{studentDetails.student.division}
+                            <div>{studentDetails.student.division}
                             </div>
                         </div>
                         <div className="sDetailUnder">

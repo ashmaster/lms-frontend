@@ -15,6 +15,8 @@ import AllTransactions from "./pages/AllTransactions/allTransactions";
 import { Navbar, Nav, Form, FormControl, Button, NavDropdown, Container, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SnackbarProvider from 'react-simple-snackbar'
+import AddBook from "./pages/AddBook/AddBook";
+import AddStudent from "./pages/AddStudent/AddStudent";
 
 
 
@@ -25,7 +27,7 @@ export default function App() {
         <div>
           <TopBar />
           <Switch>
-            <Route path="/home">
+            <Route exact path={["/","/home"]}>
               <Home />
             </Route>
             <Route path="/login">
@@ -42,6 +44,12 @@ export default function App() {
             </Route>
             <Route path={["/all-transactions"]}>
               <AllTransactions />
+            </Route>
+            <Route path={["/add-book"]}>
+              <AddBook />
+            </Route>
+            <Route path={["/add-student"]}>
+              <AddStudent />
             </Route>
           </Switch>
         </div>

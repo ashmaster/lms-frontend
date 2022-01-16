@@ -1,0 +1,26 @@
+.addStudent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.entryFields{
+    padding: 5% 10% 5% 10%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputField{
+    height: 40px;
+    margin-top: 10px;
+    padding-left: 4px;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.submit{
+    position: absolute;
+    bottom: 0;
+}

@@ -6,6 +6,7 @@ import SDetail from "../../components/Home/SearchBox/sDetail";
 import { useSnackbar } from 'react-simple-snackbar'
 import loading_gif from '../../assets/loading.gif'
 import axios from 'axios';
+import backend from "../../const";
 
 export default function IssueBook(props) {
     const [student, setStudent] = useState(null);
@@ -58,7 +59,7 @@ export default function IssueBook(props) {
         params.bookList = bookList;
         params.student = student.student;
         setLoading(true)
-        let res = await axios.post(`http://localhost:3001/lend_book`, params);
+        let res = await axios.post(`${backend}/lend_book`, params);
         const response = res.data
         if(response.status){
             setLoading(false)
@@ -74,7 +75,7 @@ export default function IssueBook(props) {
         
     }
     return (
-        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', position: 'relative' }}>
+        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', width: '100%', height: '100%' }}>
             {bookList.length > 0 || showSearchBook ? null : <SearchBox type="student" id={id || null} giveBackDetails={giveBackSDetails} />}
             {bookList.length > 0 || showSearchBook ? <div style = {{marginLeft:'12px', marginRight:'12px'}}><SDetail studentId={student.student.admissionNo} closePopup={() => closePopup()} type="student" data={student} /></div> : null}
             {bookList.length > 0 && <div style = {{display : 'flex', flexDirection : 'column', width : '95%', borderTop : 'solid 0.5px', alignItems:'center'}}>

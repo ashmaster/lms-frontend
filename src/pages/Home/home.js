@@ -6,6 +6,13 @@ import Transactions from '../../components/Home/Transactions/transactions';
 import AdminActions from '../../components/Home/AdminActions/adminActions';
 
 export default function(props){
+    useEffect(() => {
+        let i = window.localStorage.getItem('Admin');
+        console.log(i)
+        if(!i){
+            window.location.href = "/login"
+        }
+    },[])
     return(
         <div className= "Home">
             <InfoBar/>

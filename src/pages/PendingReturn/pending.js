@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useSnackbar } from "react-simple-snackbar";
 import '../../components/Home/SearchBox/sDetail.css'
+import backend from "../../const";
 
 const MONTHS = [
     "Jan",
@@ -68,11 +69,14 @@ export default function PendingReturn(props) {
     const [bookList, setBookList] = useState([])
     const [openSnack, closeSnack] = useSnackbar({ position: 'top-center' })
     useEffect(async () => {
-        const response = await axios.get(`http://localhost:3001/pending_return`)
+        const response = await axios.get(`${backend}/pending_return`)
         const res = response.data;
         if (res.status) {
+            
             const resArray = res.transactions
             setBookList(resArray);
+            if(res.msg)
+                openSnack(res.msg)
         }
         else {
             openSnack('Sorry could not retrieve list')
@@ -81,14 +85,14 @@ export default function PendingReturn(props) {
     }, [])
     return (
         <div>
-            {
+            {bookList.length > 0 ? 
                 bookList.map((item) => {
                     return (
                         <Card item={item} />
                     )
 
                 })
-            }
+             : <div style = {{padding: '10%'}}><h2 style = {{textAlign:'center', marginTop: '50%'}}>No unreturned books</h2></div>}
         </div>
     )
 }
