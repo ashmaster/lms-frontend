@@ -1,3 +1,3 @@
-const backend = "http://localhost:3001";
+const backend = "https://fgmhslibbackend.herokuapp.com";
 
 export default backend
