@@ -59,7 +59,7 @@ const Card = (e) => {
                 <div style={{ fontStyle: 'italic', margin: '12px 0 12px 0' }}>
                     {e.item.s_name} ({e.item.admissionNo})
                 </div>
-                <div style = {{display: "flex", flexDirection:'row', justifyContent: 'space-between', width:'100%', alignItems:'center', color : e.item.date_of_return  ? "green" : "red"}}>
+                <div style = {{display: "flex", flexDirection:'row', justifyContent: 'space-between', width:'100%', alignItems:'center', color : e.item.date_of_return  ? "#2374e1" : "red"}}>
                     <div style={{ fontSize: '12px', fontWeight:'bold' }}>
                         {convertDate(e.item.date_of_lending, e.item.date_of_return, "date")}
                     </div>

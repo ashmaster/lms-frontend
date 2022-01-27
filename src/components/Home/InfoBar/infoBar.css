@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap');
 
 .InfoBarRectangle {
-    width: 90vw;
+    width: 90%;
     padding-top: 18px;
     padding-bottom: 18px;
     margin-top: 28px;
     background: #FFFFFF;
-    border: 2px solid #D7CCCC;
+    border: 1px solid #D7CCCC;
     box-sizing: border-box;
     border-radius: 10px;
     display: flex;

@@ -103,7 +103,7 @@ export default function AddBook() {
                 </div>
             </div>
 
-            <div onClick={() => handleSubmit()} className="submit" style={{ width: '100%', paddingTop: '10px', paddingBottom: '10px', textAlign: 'center', verticalAlign: 'middle', background: 'green', fontSize: '22px', fontWeight: 'bold', color: '#fff' }}>
+            <div onClick={() => handleSubmit()} className="submit" style={{ borderRadius: '6px' ,width: '50%', paddingTop: '10px', paddingBottom: '10px', textAlign: 'center', verticalAlign: 'middle', background: '#2374e1', fontSize: '22px', fontWeight: 'bold', color: '#fff' }}>
                 Add Book
             </div>
         </div>

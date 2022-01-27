@@ -2,6 +2,7 @@ import './topBar.css'
 import titleBarIcon from '../../assets/titleBarIcon.png'
 import back from '../../assets/back.png'
 import { useEffect } from 'react'
+import Logo from '../../assets/logoimg.jpeg'
 
 export default function (props) {
     useEffect(() => {
@@ -25,16 +26,22 @@ export default function (props) {
         }, 500)
     }
     const loc = window.location.href.split('/')[3]
-    return (
-        <div className="topBarRow">
-            <div className="topBarTitle">
-                {(loc === "login" || loc === "home" || loc === "") ? null :
-                    <img src={back} className="titleBarIcon" alt="logo" style={{ marginRight: '12px' }} onClick = {() => {window.history.back()}}/>}
-                {headerTitle[loc]}
+    if(window.location.pathname == "/login"){
+        return <></>
+    }
+    else{
+        return (
+            <div className="topBarRow" style={(window.location.pathname == "/login" && !window.matchMedia("only screen and (max-width: 760px)").matches) ? {maxHeight: '10vh'} : {}}>
+                <div className="topBarTitle">
+                    {(loc === "login" || loc === "home" || loc === "" || !window.matchMedia("only screen and (max-width: 760px)").matches) ? <img src={Logo} className="titleBarIcon" alt="logo" style={{ marginRight: '12px' }} />:
+                        <img src={back} className="titleBarIcon" alt="logo" style={{ marginRight: '12px' }} onClick = {() => {window.history.back()}}/>}
+                    {window.matchMedia("only screen and (max-width: 760px)").matches ? headerTitle[loc] : "FGMHS"}
+                </div>
+                {(loc === "home" || loc === "" || !window.matchMedia("only screen and (max-width: 760px)").matches) ? <div className="titleBarIcon" onClick={() => handleLogout()}>
+                    <p>Logout</p>
+                </div> : <div style={{ width: "36px" }} />}
             </div>
-            {(loc === "home" || loc === "") ? <div className="titleBarIcon" onClick={() => handleLogout()}>
-                <p>Logout</p>
-            </div> : <div style={{ width: "36px" }} />}
-        </div>
-    )
+        )
+    }
+    
 }

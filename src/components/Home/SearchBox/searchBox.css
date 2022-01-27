@@ -1,5 +1,5 @@
 .SearchBoxRectangle{
-    width: 100vw;
+    width: 100%;
     margin-top: 28px;
     padding-top: 10px;
     padding-bottom: 18px;
@@ -7,14 +7,14 @@
     padding-right: 24px;
     display: flex;
     flex-direction: column;
-    background: #E7E9FF;
+    background: #b6bcff;
 }
 
 .SearchBoxTitle{
     margin-top: 18px;
     font-family: Roboto;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
     line-height: 21px;
     color: #000000;
@@ -41,7 +41,7 @@
 .SearchBoxButton{
     width: 37%;
     height: 36px;
-    background: #00E600;
+    background: #2374e1;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     display: flex;

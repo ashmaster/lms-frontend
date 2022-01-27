@@ -38,14 +38,17 @@ export default function ({studentId, closePopup, giveBackDetails, type, data}) {
     const issueBook = () => {
         window.location.href = "/issue-book/" + studentId
     }
+    const isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+
 
     return (
-        <div style = {{background:'#fff', width:'100vw', marginLeft:'-24px', paddingLeft:'24px', paddingRight:'24px', marginTop:'18px', paddingTop:'10px'}}>
+        <div style = {{background:'#fff', width:'100%', marginLeft: isMobile ? '-24px' : null, paddingLeft:'24px', paddingRight:'24px', marginTop:'18px', paddingTop:'10px'}}>
             <div onClick = {closePopup} style= {{display:'flex', justifyContent:'flex-end'}}>
                 <img src={close_icon} style = {{width : "18px", height: 'auto'}} />
             </div>
             {!loading ? 
                 <div className="sDetailRectangle">
+                    <div style={{display: 'flex', flexDirection: 'row', width: '50%'}}>
                     <div className="sDetailImage">
                         <img src={titleBarIcon} style={{ width: "42px", height: 'auto' }} />
                     </div>
@@ -68,6 +71,7 @@ export default function ({studentId, closePopup, giveBackDetails, type, data}) {
                                 {studentDetails.no_of_unreturned} unreturned
                             </div>
                         </div>
+                    </div>
                     </div>
                     {type !== "student" ? <div className="sDatailBGroup">
                         <div className="sDetailButton">

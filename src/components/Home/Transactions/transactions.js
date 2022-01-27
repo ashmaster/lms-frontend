@@ -1,7 +1,7 @@
 import './transactions.css'
 import issueBook from '../../../assets/issueBook.png'
 import returnBook from '../../../assets/return.png'
-import allTransactions from '../../../assets/alltransaction.png'
+import allTransactions from '../../../assets/all.png'
 import unreturned from '../../../assets/unreturned.png'
 import {
     useHistory,

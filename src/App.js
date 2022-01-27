@@ -6,7 +6,8 @@ import {
   Link,
 } from "react-router-dom";
 import Login from "./pages/Login/login";
-import Home from "./pages/Home/home"
+import MHome from "./pages/Home/mhome"
+import DHome from "./pages/Home/dhome"
 import IssueBook from "./pages/IssueBook/issueBook"
 import ReturnBook from "./pages/ReturnBook/returnBook";
 import TopBar from "./components/TopBar/topBar"
@@ -21,18 +22,20 @@ import AddStudent from "./pages/AddStudent/AddStudent";
 
 
 export default function App() {
+  const isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
   return (
     <Router>
       <SnackbarProvider>
         <div>
           <TopBar />
           <Switch>
-            <Route exact path={["/","/home"]}>
-              <Home />
-            </Route>
-            <Route path="/login">
+          <Route path="/login">
               <Login />
             </Route>
+            <Route exact = {isMobile} path={["/","/home"]}>
+              {isMobile ? <MHome /> : <DHome />}
+            </Route>
+            
             <Route path={["/issue-book/:id", "/issue-book"]}>
               <IssueBook />
             </Route>

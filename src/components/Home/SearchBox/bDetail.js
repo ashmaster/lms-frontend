@@ -73,13 +73,14 @@ export default function ({ bookId, searchType, closePopup, giveBackDetails, type
         setBookID('');
         setSbnList([])
     }
+    const isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 
     const returnBook = () => {
         window.location.href = "/return-book/" + bookId
     }
     if (sbnList.length !== 0) {
         return (
-            <div style={{ background: '#fff', width: '100vw', maxHeight: '300px', overflowY: 'scroll', marginLeft: '-24px', paddingLeft: '24px', paddingRight: '24px', marginTop: '18px', paddingTop: '10px' }}>
+            <div style={{ background: '#fff', width: '100%', maxHeight: '300px', overflowY: 'scroll', marginLeft: isMobile ? '-24px' : null, paddingLeft: '24px', paddingRight: '24px', marginTop: '18px', paddingTop: '10px' }}>
                 <div onClick={closeBookPopup} style={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <img src={close_icon} style={{ width: "18px", height: 'auto' }} />
                 </div>
@@ -122,7 +123,7 @@ export default function ({ bookId, searchType, closePopup, giveBackDetails, type
     }
     else {
         return (
-            <div style={{ background: '#fff', width: '100vw', marginLeft: '-24px', paddingLeft: '24px', paddingRight: '24px', marginTop: '18px', paddingTop: '10px' }}>
+            <div style={{ background: '#fff', width: '100%', marginLeft: isMobile ? '-24px' : null, paddingLeft: '24px', paddingRight: '24px', marginTop: '18px', paddingTop: '10px' }}>
                 <div onClick={closePopup} style={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <img src={close_icon} style={{ width: "18px", height: 'auto' }} />
                 </div>

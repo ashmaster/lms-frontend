@@ -97,7 +97,7 @@ export default function IssueBook(props) {
                     </div>
                 ) : null
             }
-            {bookList.length > 0 && <div onClick={() => loading ? null : issueBooks()} style={{ position: 'absolute', bottom: 0, width: '100%', paddingTop: '10px', paddingBottom: '10px', textAlign: 'center', verticalAlign: 'middle', background: 'green', fontSize: '22px', fontWeight: 'bold', color: '#fff' }}>
+            {bookList.length > 0 && <div onClick={() => loading ? null : issueBooks()} style={{ marginTop: '5%', borderRadius: '6px' ,width: '50%', paddingTop: '10px', paddingBottom: '10px', textAlign: 'center', verticalAlign: 'middle', background: '#2374e1', fontSize: '22px', fontWeight: 'bold', color: '#fff' }}>
                         {loading ? <img src = {loading_gif} width = {"26px"} height = {"auto"}></img> :"Issue Book"}
                     </div>}
         </div>

@@ -86,7 +86,7 @@ export default function ReturnBook(props) {
         }
     }
     return (
-        <div>
+        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', width: '100%', height: '100%' }}>
             {<SearchBox type="book" id={id || null} giveBackDetails={giveBackDetails} />}
             {lastTransaction && (
                 <div style={{ display: 'flex', flexDirection: 'column', paddingLeft: '24px', paddingRight: '24px', background: '#E7E9FF', paddingBottom: '10px' }}>
@@ -108,7 +108,7 @@ export default function ReturnBook(props) {
                 lastTransaction && (
                     <div style = {{position: 'absolute', bottom: 0, width: '100%'}}>
                         <textarea style = {{width: '100%', fontFamily: 'monospace'}} onChange = {(p) => setRemarks(p.currentTarget.value)} placeholder = "Remark before returning"></textarea>
-                        <div onClick={() => loading ? null : returnBooks()} style={{width: '100%', paddingTop: '10px', paddingBottom: '10px', textAlign: 'center', verticalAlign: 'middle', background: 'green', fontSize: '22px', fontWeight: 'bold', color: '#fff' }}>
+                        <div onClick={() => loading ? null : returnBooks()} style={{marginTop: '5%', borderRadius: '6px' ,width: '50%', paddingTop: '10px', paddingBottom: '10px', textAlign: 'center', verticalAlign: 'middle', background: '#2374e1', fontSize: '22px', fontWeight: 'bold', color: '#fff' }}>
                             {loading ? <img src = {loading_gif} width = {"26px"} height = {"auto"}></img> :"Return Book"}
                         </div>
                     </div>

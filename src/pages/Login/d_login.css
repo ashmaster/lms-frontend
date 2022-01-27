@@ -1,0 +1,17 @@
+.img-right{
+    background:linear-gradient( rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7)100%),url("../../assets/school.jpg");
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .img-right::before{
+    background-color: rgba(0, 0, 0, 0.65);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+} */

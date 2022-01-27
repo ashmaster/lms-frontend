@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap');
 
 .sDetailRectangle{
-    width: 100vw;
+    width: 100%;
     height: 90px;
     margin-right: -24px;
     margin-left: -24px;
@@ -28,6 +28,10 @@
     font-size: 16px;
     line-height: 27px;
     color: #000000;
+}
+
+.sDetailImage{
+    margin-right: 5%;
 }
 
 .sDetailUnder{

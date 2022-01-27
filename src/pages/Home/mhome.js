@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import "./home.css"
+import "./mhome.css"
 import InfoBar from '../../components/Home/InfoBar/infoBar';
 import SearchBox from '../../components/Home/SearchBox/searchBox';
 import Transactions from '../../components/Home/Transactions/transactions';
