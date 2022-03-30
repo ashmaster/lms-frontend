@@ -36,6 +36,10 @@ export default function ReturnBook(props) {
     const [bookDetails, setBookDetails] = useState(null);
     const [loading, setLoading] = useState(false);
     const [remarks, setRemarks] = useState('')
+
+    useEffect(() => {
+        console.log(props.id)
+    },[])
     
     const giveBackDetails = (e) => {
         if (e) {
@@ -85,11 +89,12 @@ export default function ReturnBook(props) {
             openSnack("Book could not be returned")
         }
     }
+    const isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
     return (
         <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', width: '100%', height: '100%' }}>
-            {<SearchBox type="book" id={id || null} giveBackDetails={giveBackDetails} />}
+            {<SearchBox type="book" id={id || props.id || null} giveBackDetails={giveBackDetails} />}
             {lastTransaction && (
-                <div style={{ display: 'flex', flexDirection: 'column', paddingLeft: '24px', paddingRight: '24px', background: '#E7E9FF', paddingBottom: '10px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', paddingLeft: '24px', paddingRight: '24px', background: '#E7E9FF', paddingBottom: '10px', paddingTop: '10px', width: '100%'}}>
                     <p style={{ fontWeight: 'bold', fontSize: '18px', fontFamily: 'Roboto', marginBottom: '0px' }}>Student Details</p>
                     <div style={{}}>
                         <div style={{ fontStyle: 'italic', fontSize: '18px', fontFamily: 'Roboto' }}>
@@ -106,8 +111,8 @@ export default function ReturnBook(props) {
             )}
             {
                 lastTransaction && (
-                    <div style = {{position: 'absolute', bottom: 0, width: '100%'}}>
-                        <textarea style = {{width: '100%', fontFamily: 'monospace'}} onChange = {(p) => setRemarks(p.currentTarget.value)} placeholder = "Remark before returning"></textarea>
+                    <div style = {isMobile ? {display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center'} : {width: '100%', alignItems: 'center', marginTop: '20px', display:'flex', flexDirection: 'column', justifyContent: 'center'}}>
+                        <textarea style = {{width: '100%', fontFamily: 'monospace', paddingLeft: '24px'}} onChange = {(p) => setRemarks(p.currentTarget.value)} placeholder = "Remark before returning"></textarea>
                         <div onClick={() => loading ? null : returnBooks()} style={{marginTop: '5%', borderRadius: '6px' ,width: '50%', paddingTop: '10px', paddingBottom: '10px', textAlign: 'center', verticalAlign: 'middle', background: '#2374e1', fontSize: '22px', fontWeight: 'bold', color: '#fff' }}>
                             {loading ? <img src = {loading_gif} width = {"26px"} height = {"auto"}></img> :"Return Book"}
                         </div>

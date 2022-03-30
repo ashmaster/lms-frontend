@@ -10,9 +10,12 @@ import SearchBox from "../SearchBox/searchBox";
 
 export default function() {
     const [view, setView] = useState('home');
+    const [id, setId] = useState(null);
     useEffect(() => {
         let p = window.location.pathname.split('/')[1];
+        let id = window.location.pathname.split('/')[2] || null;
         setView(p);
+        setId(id)
     },[])
 
     const retView = () => {
@@ -30,7 +33,7 @@ export default function() {
             }
             case 'return-book' : {
                 return(<div style = {{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100%'}}>
-                <ReturnBook />
+                <ReturnBook id = {id || null}/>
             </div>)
             }
             case 'pending-return' : {

@@ -51,7 +51,7 @@ const convertDate = (d1, d2, type) => {
 
 const Card = (e) => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', padding: '12px 24px 12px 24px', background: '#E7E9FF', margin: '24px 0 24px 0' }}>
+        <div style={{ display: 'flex',width: '100%', flexDirection: 'row', padding: '12px 24px 12px 24px', background: '#E7E9FF', margin: '24px 0 24px 0' }}>
             <div style={{ display: 'flex', flexDirection: 'column', width: '100%', paddingRight: '6px' }}>
                 <div style={{ fontWeight: 'bold' }}>
                     {e.item.b_name} - {e.item.bookId}
@@ -100,7 +100,7 @@ export default function AllTransactions(props) {
 
     }, [])
     return (
-        <div>
+        <div style={{width: '100%'}}>
             {
                 bookList.map((item) => {
                     return (
